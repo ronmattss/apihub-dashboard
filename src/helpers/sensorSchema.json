@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SensorReadingEnvelope",
+  "type": "object",
+  "required": ["Type", "Channel", "Payload", "Timestamp"],
+  "properties": {
+    "Type": {"type":"string"},
+    "Channel": {"type":"string"},
+    "To": {"type":["string","null"]},
+    "From": {"type":["string","null"]},
+    "Topic": {"type":["string","null"]},
+    "Payload": {
+      "description": "Arbitrary JSON payload (JsonElement in .NET).",
+      "oneOf": [
+        {"type":"object"},
+        {"type":"array"},
+        {"type":"string"},
+        {"type":"number"},
+        {"type":"boolean"},
+        {"type":"null"}
+      ]
+    },
+    "Meta": {
+      "type":"object",
+      "description": "Optional metadata dictionary, values may be any JSON",
+      "additionalProperties": true
+    },
+    "Timestamp": {"type":"number"},
+    "Id": {"type":["string","null"]},
+    "CorrelationId": {"type":["string","null"]}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SensorCommand",
+  "type": "object",
+  "required": ["Type"],
+  "properties": {
+    "Type": { "type": "string", "description": "Command type (e.g. PinWrite, PwmWrite, SerialPrint)" },
+    "Pin": { "type": ["integer","null"], "description": "Optional pin number" },
+    "Value": { "type": ["number","null"], "description": "Optional numeric value" },
+    "Message": { "type": ["string","null"], "description": "Optional message/payload" },
+    "Id": { "type": ["string","null"] },
+    "PinMode": { "type": ["string","null"], "description": "Optional: INPUT/OUTPUT/INPUT_PULLUP" }
+  },
+  "additionalProperties": false
+}
